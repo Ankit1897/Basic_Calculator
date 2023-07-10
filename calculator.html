@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+           position: relative;
+           left: 30vw;
+        }
+        .containor{
+                 display: flex;
+                 justify-content: center;
+                 padding: 3px;
+                 align-items: center;
+                 position: relative;
+                 left: 30vw;
+                 flex-direction: column;
+                 
+                 width: 200px;
+                 box-shadow: 4px 4px 4px  rgb(128, 128, 128);
+                 height: 400px;
+
+                 border-radius: 12px;
+                 background-color: gainsboro;
+                 
+        }
+        .input{
+            margin-bottom: 10px;
+            font-size: 120%;
+            width: 183px;
+            height: 40px;
+            border: 1px solid rgb(0, 0, 0);
+        }
+       .row{
+        display: flex;
+        justify-content: center;
+       }
+       .btn{
+        padding: 15px;
+        padding-left: 17px;
+        margin: 2px;
+        padding-right: 17px;
+        border-radius: 9px;
+        cursor: pointer;
+
+       
+        font-size: 120%;
+       border: 1px solid rgb(152, 151, 151);
+       box-shadow: 1px 1px 1px rgb(139, 139, 139);
+       background:linear-gradient(rgb(134, 248, 254),rgb(35, 150, 212));
+       }
+      
+       .row-3{
+        margin: 0;
+        padding: 0;
+       }
+       .btn-1{
+        padding: 15px;
+        padding-left: 17px;
+        margin: 2px;
+        padding-right: 17px;
+        border-radius: 9px;
+        cursor: pointer;
+
+       
+        font-size: 120%;
+       border: 1px solid rgb(152, 151, 151);
+       box-shadow: 1px 1px 1px rgb(139, 139, 139);
+       background:linear-gradient(rgb(134, 248, 254),rgb(35, 150, 212));
+       }
+       
+    
+    </style>
+</head>
+<body id="Home">
+    <h1>Calculator</h1>
+    <div class="containor">
+        <div class="solve">
+         <input class="input" type="text">
+        </div>
+        <div class="row">
+          <div ><button class="btn">1</button></div>
+          <div ><button class="btn">2</button></div>
+          <div ><button class="btn">3</button></div>
+          <div ><button class="btn">=</button></div>
+        </div>
+        <div class="row">
+            <div ><button class="btn">4</button></div>
+            <div ><button class="btn">5</button></div>
+            <div ><button class="btn">6</button></div>
+            <div ><button class="btn">+</button></div>
+          </div>
+          <div class="row">
+            <div ><button class="btn">7</button></div>
+            <div ><button class="btn">8</button></div>
+            <div ><button class="btn">9</button></div>
+            <div ><button class="btn">-</button></div>
+          </div>
+          <div class="row" class="row-3">
+            <div ><button class="btn" >/</button></div>
+            <div ><button class="btn" >*</button></div>
+            <div ><button class="btn" >p</button></div>
+            <div><button  class="btn" >C</button></div>
+          </div>
+          <div class="row" class="row-4">
+               <div><button class="btn-1">advance</button></div>
+               <div><button class="btn">AC</button></div>
+          </div>
+        
+    </div>
+    <script>
+      let string="";
+      let button=document.querySelectorAll('.btn');
+       for(let i=0;i<button.length;i++)
+       {
+              button[i].addEventListener('click',function(){
+                if(button[i].innerHTML=='=')
+                string=eval(string);
+                else if(button[i].innerHTML=='AC')
+                string="";
+                else if(button[i].innerHTML=='C')
+                {
+                  string=string.slice(0,-1);
+                }
+                else if(button[i].innerHTML=='p')
+                {
+                  string=string+"**";
+                }
+                else{ 
+                   string=string+button[i].innerHTML;
+                   
+                }
+                   document.getElementsByClassName('input')[0].value=string;
+              })
+       }
+    </script>
+</body>
+</html>
